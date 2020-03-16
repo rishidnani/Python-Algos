@@ -1,0 +1,7 @@
+class Solution:
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        x = 0;
+        for i in range(0, len(J)):
+            x = x + S.count(J[i])
+        return x;
+        
