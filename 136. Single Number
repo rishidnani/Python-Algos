@@ -1,0 +1,26 @@
+1st Attempt 
+#Very bad time complexity.. Could have used hashmaps 
+     b = []    
+        for i in range(0,len(nums)):
+            if nums[i] in nums[i + 1 :]:
+                b.append(nums[i])
+                continue
+
+            elif nums[i] in b:
+                continue 
+
+            else:
+                return nums[i]
+             
+ 2nd attempt  
+ I am using XOR here. Because XOR with itself is 0 and XOR of a number with 0 is the number
+for a = [2,2,4] 2^2^4 = (2^2) ^4 = 0^4 = 4
+ Limitation: this solution will work if ducplicate count is exactly 2
+
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = nums[0]
+        for i in range(1,len(nums)):
+            res = res ^ nums[i]
+        return res
